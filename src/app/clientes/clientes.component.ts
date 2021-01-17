@@ -18,36 +18,31 @@ interface Productos{
 })
 export class ClientesComponent implements OnInit {
 
-  clientes: Array<Clientes> = new Array<Clientes>();
-  productos: Array<Productos> = new Array<Productos>();
-
   constructor() { }
 
-  ngOnInit(): void {
-  
-      // this.clientes.push(
-      //   { nombre: 'Diana', apellido: 'Pérez', edad: 22 },
-      //   {nombre: 'Diana', apellido: 'Alvarado', edad: 20}
-      // )
-
-      // this.productos.push(
-      //   { nombre: 'Sabritas',  precio: 22 },
-      //   {nombre: 'Coca Cola',  precio: 20}
-      // )
-  }
+  ngOnInit() {}
 
   guardarCliente(){
-    localStorage.setItem('clientes', JSON.stringify(this.clientes))
+    let clientesAgregar: Array<Clientes> = new Array<Clientes>();
+
+    clientesAgregar.push(
+      {nombre: 'Diana', apellido: 'Pérez', edad: 22},
+      {nombre: 'Diana', apellido: 'Vazquez', edad: 20}
+    )
+
+    localStorage.setItem('clientes', JSON.stringify(clientesAgregar))
   }
 
   guardarProducto(){
-    localStorage.setItem('productos', JSON.stringify(this.productos))
-  }
 
-  leer(){
-    
-    this.productos = JSON.parse(localStorage.getItem('productos')) 
-    this.clientes = JSON.parse(localStorage.getItem('clientes'))
+    let productosAgregar: Array<Productos> = new Array<Productos>();
+
+    productosAgregar.push(
+      {nombre: 'CocaCola', precio: 14},
+      {nombre: 'Papas Crema/Cebolla', precio: 34}
+    )
+
+    localStorage.setItem('productos', JSON.stringify(productosAgregar))
   }
 
   eliminarClientes(){
@@ -60,6 +55,22 @@ export class ClientesComponent implements OnInit {
 
   eliminarTodo(){
     localStorage.clear();
+  }
+
+  get clientesLocales(): Clientes[]{
+    let clienteLocalStorage: Clientes[] = JSON.parse(localStorage.getItem('clientes'))
+    if(clienteLocalStorage == null){
+      return Array<Clientes>();
+    }
+    return clienteLocalStorage
+  }
+
+  get productosLocales(): Productos[]{
+    let productoLocalStorage: Productos[] = JSON.parse(localStorage.getItem('productos'))
+    if(productoLocalStorage == null){
+      return Array<Productos>();
+    }
+    return productoLocalStorage
   }
 
 }
