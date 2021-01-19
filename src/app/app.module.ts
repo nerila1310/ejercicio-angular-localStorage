@@ -7,6 +7,8 @@ import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ProductosComponent } from './productos/productos.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
+import { HomeComponent } from './home/home.component';
+import { AgregarClientesComponent } from './agregar-clientes/agregar-clientes.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { PedidosComponent } from './pedidos/pedidos.component';
     EncabezadoComponent,
     ClientesComponent,
     ProductosComponent,
-    PedidosComponent
+    PedidosComponent,
+    HomeComponent,
+    AgregarClientesComponent
   ],
   imports: [
     BrowserModule,
