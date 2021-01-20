@@ -1,8 +1,8 @@
 export class Clientes{
     clienteID: number;
-    nombre: String;
-    apellido: String;
-    direccion: String;
+    nombre: string;
+    apellido: string;
+    direccion: string;
 
     constructor(){
         this.clienteID = this.clienteID;
