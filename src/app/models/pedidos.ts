@@ -52,4 +52,9 @@ export class Pedidos{
             this.totalPedido = this.totalPedido + producto.total;
         }
     }
+
+    public actualizarCantidades(posicion: number){
+        this.detallePedido[posicion].total = this.detallePedido[posicion].cantidad * this.detallePedido[posicion].precio;
+        this.actualizarTotal();
+    }
 }
