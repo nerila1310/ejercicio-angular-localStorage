@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
 
     this.ServicioPedido.pedido.clienteID = cliente.clienteID;
     this.ServicioPedido.pedido.nombreCliente = `${cliente.nombre} ${cliente.apellido}`;  
+    this.ServicioPedido.guardarLocalStorage();
     this.route.navigateByUrl('/productos')
   } 
 
