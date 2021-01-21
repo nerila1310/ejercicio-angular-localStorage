@@ -27,7 +27,6 @@ export class ProductosComponent implements OnInit {
   agregar(producto: Productos){
     this.ServicioPedido.pedido.agregarProducto(producto)
     this.ServicioPedido.guardarLocalStorage();
-    console.log(this.ServicioPedido.pedido)
   }
 
 

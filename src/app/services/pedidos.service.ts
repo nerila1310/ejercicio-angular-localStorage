@@ -26,4 +26,21 @@ export class PedidosService {
     }
     return pedidoLocalStorage;
   }
+
+  guardarPedido(){
+    let listadoPedidos: Pedidos[] = new Array<Pedidos>();
+    listadoPedidos = this.listadoPedidoslocalStorage;
+    listadoPedidos.push(this.pedido);
+    localStorage.setItem('pedidos', JSON.stringify(listadoPedidos))
+    localStorage.removeItem('ultimoPedido')
+    this.pedido = new Pedidos(null);
+  }
+
+  get listadoPedidoslocalStorage(): Pedidos[]{
+    let pedidos: Pedidos[] = JSON.parse(localStorage.getItem('pedidos'));
+    if(pedidos == null){
+      return new Array<Pedidos>();
+    }
+    return pedidos;
+  }
 }
